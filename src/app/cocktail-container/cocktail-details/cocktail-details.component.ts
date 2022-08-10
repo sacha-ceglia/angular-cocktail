@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Cocktail } from 'src/app/shared/interfaces/cocktail.interface';
+import { PanierService } from 'src/app/shared/services/panier.service';
 
 @Component({
   selector: 'app-cocktail-details',
@@ -7,11 +8,13 @@ import { Cocktail } from 'src/app/shared/interfaces/cocktail.interface';
   styleUrls: ['./cocktail-details.component.scss']
 })
 export class CocktailDetailsComponent implements OnInit {
-  @Input() cocktail: Cocktail;
+  @Input() public cocktail: Cocktail;
 
-  constructor() { }
+  constructor(private panierService: PanierService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  
+  public addToPanier(): void {
+    this.panierService.addToPanier(this.cocktail.ingredients);
   }
-
 }

@@ -14,7 +14,7 @@ export class CocktailService {
         ingredients: [
           {
             name: 'Menthe',
-            quantity: 1
+            quantity: 2
           },
           {
             name: 'Perrier',
@@ -22,7 +22,7 @@ export class CocktailService {
           },
           {
             name: 'Rhum',
-            quantity: 1
+            quantity: 3
           },
         ]
       },
@@ -67,10 +67,9 @@ export class CocktailService {
     ]
   );
 
-  public selectedCockail$: BehaviorSubject<Cocktail> = new BehaviorSubject(
+  public selectedCocktail$: BehaviorSubject<Cocktail> = new BehaviorSubject(
     this.cocktails$.value[0]
     );
-  selectedCocktail$: any;
 
   public selectCocktail(index: number): void {
     this.selectedCocktail$.next(this.cocktails$.value[index]);

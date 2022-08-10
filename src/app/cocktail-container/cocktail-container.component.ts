@@ -24,7 +24,7 @@ constructor(private cocktailService: CocktailService) {};
       }) 
     );
 
-    this.subscription.add(this.cocktailService.selectedCockail$.subscribe(
+    this.subscription.add(this.cocktailService.selectedCocktail$.subscribe(
       (selectedCocktail: Cocktail) => {
       this.selectedCocktail = selectedCocktail;
     }
